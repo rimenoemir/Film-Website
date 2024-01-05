@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css2?family=Mynerve&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Mynerve", cursive;
+}
+
+/*navbar başlangıç*/
+.navbar {
+  background-color: #000;
+  color: white;
+  height: 60px;
+  position: sticky; /* navbar kısmı scroll aşağı götürdüğünde bile sabit kalır top 0 vermek gerekir*/
+  top: 0;
+  z-index: 1; /* y üstte olcak*/
+}
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between; /*Logo linkler ve profile ksımını ayırır hizalar*/
+  align-items: center; /*navbar da dikeyde ortalar*/
+  height: 100%;
+  padding: 0 50px; /*navbar kısmında aşağıdan üstten 0 px  sağdan soldan 50 px ayarlar*/
+}
+
+.menu-list {
+  display: flex;
+  list-style: none; /*Link başındakileri noktaları temizler*/
+  padding: 0;
+  column-gap: 20px; /*Linkler arasındaki boşluk*/
+}
+
+.menu-list-item {
+  cursor: pointer;
+}
+
+.menu-list-item:hover {
+  color: yellow;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.logo {
+  color: yellow;
+  font-size: 30px;
+}
+
+.logo a {
+  text-decoration: none;
+  color: yellow;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.profile-text-container {
+  display: flex;
+  column-gap: 5px;
+  line-height: 1;
+}
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* görüntüsünü daha iyi gösterir*/
+  cursor: pointer;
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  border-radius: 30px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.toggle-ball {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  right: 2px;
+  transition: 1.2s ease all;
+}
+
+.toggle-icon {
+  color: gold;
+}
+
+/*navbar bitiş*/
+
+/*featured and container content başlangıç*/
+
+.container {
+  background-color: black;
+  color: white;
+}
+
+.featured-container {
+  background-image: url("resimler/1652.jpg");
+  padding: 50px;
+  height: calc(100vh - 160px);       
+  background-size: cover; /*şekli yüzde yüz alır sığdırır*/
+}
+
+.content-title {
+  width: 460px;
+  height: 160px;
+}
+
+.content-info {
+  width: 350px;
+  padding: 10px;
+  margin: 30px 0px;
+  background-color: orange;
+  color: black;
+  border-radius: 15px;
+}
+
+.content-buttons {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  bottom: 50px;
+}
+
+.content-buttons button {
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: #646464;
+  display: flex;
+  column-gap: 10px;
+}
+
+.content-buttons .play-button {
+  background-color: rgb(44, 9, 173);
+}
+
+.content-buttons .list-button {
+  background-color: rgb(44, 9, 173);
+}
+
+.content-buttons .info-button {
+  background-color: rgba(145, 142, 142, 0.5);
+}
+
+.content-buttons button:hover {
+  background-color: rgba(255, 70, 70);
+}
+
+/*featured and container content bitiş*/
+
+/*movie list başlangıcı*/
+.movie-list-item {
+  margin: 15px 0 20px 45px;
+  padding: 20px;
+}
+
+.movie-list-item select {
+  background-color: black;
+  color: white;
+  width: 125px;
+  padding: 7px 0;
+}
+/*movie list devam */
+
+.movie-list-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-list-container {
+  margin-left: 70px;
+}
+
+.movie-list {
+  list-style: none;
+  padding: 0;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  column-gap: 26px;
+  transform: translate(0);
+  transition: 1.2s all ease-in-out;
+  left: 20px;
+}
+
+.movie-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.movie-item:hover .movie-item-title,
+.movie-item:hover .movie-item-buttons {
+  opacity: 1;
+}
+
+.movie-item:hover .movie-item-img {
+  transform: scale(1.2);
+  margin: 0 30px;
+  opacity: 0.5s;
+}
+
+.movie-item-img {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 22px;
+  transition: 0.8s all ease-in-out;
+}
+
+.movie-item-title {
+  background-color: rgba(40, 40, 40, 0.4);
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 10%;
+  left: 50px;
+  opacity: 0;
+  transition: 0.8s all ease-in-out;
+}
+
+.movie-item-buttons {
+  background-color: rgba(40, 40, 40, 0.4);
+  padding: 10px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 10%;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  opacity: 0;
+  transition: 0.8s all ease-in-out;
+}
+
+.movie-item i {
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 18px;
+  transition: 0.5s all ease;
+}
+.movie-item i:hover {
+  opacity: 1;
+}
+
+.arrow {
+  width: 100px;
+  display: flex;
+  font-size: 120px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.arrow:hover {
+  opacity: 1;
+  cursor: pointer;
+  transition: 0.5s all ease;
+}
+
+/*movie list end*/
+
+/*dark mode start */
+.container.active {
+  background-color: #fff;
+}
+
+.navbar.active {
+  background-color: #fff;
+  color: black;
+}
+
+.sidebar.active {
+  background-color: white;
+  color: black;
+}
+
+.sidebar i.active {
+  color: black;
+}
+
+.toggle.active {
+  background-color: black;
+}
+
+.toggle-ball.active {
+  background-color: white;
+  transform: translateX(-20px);
+}
+
+.movie-list-item select.active {
+  background-color: white;
+  color: black;
+}
+
+.movie-list-title.active {
+  color: black;
+}
+
+/*dark mode end*/
+
+/*responsive start*/
+
+@media only screen and (max-width: 800px) {
+  .menu-container {
+    display: none;
+  }
+  .featured-container {
+    height: 50vh;
+  }
+  .content-title {
+    width: 200px;
+  }
+  .content-info {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    max-width: 200px;
+    padding: 0;
+  }
+}
+
+/*responsive end*/
